@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - TCS Solutions</title>
+    <meta
+      name="description"
+      content="Get in touch with TCS Solutions for professional audio, video, and lighting services across the USA."
+    />
+    <link rel="icon" href="pictures/logos/favicon.ico" type="image/x-icon" />
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Inter font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="pictures/logos/header-icon.png" alt="TCS Solutions Logo" />
+          <span class="logo-solutions">The California Sound Solutions</span>
+        </a>
+
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="management.html" class="nav-link">Management</a>
+          <a href="gallery.html" class="nav-link">Gallery</a>
+          <a href="services.html" class="nav-link">Our Services</a>
+          <a href="contact.html" class="nav-link active">Contact Us</a>
+        </div>
+
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Page Header -->
+      <section class="page-header">
+        <div class="container">
+          <h1 class="page-title">Contact Us</h1>
+          <p class="page-subtitle">
+            Ready to make your event unforgettable? Get in touch with our team
+            of audio, video, and lighting experts.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact-section">
+        <div class="container">
+          <div class="contact-content">
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+              <h2 class="contact-form-title">Send us a Message</h2>
+              <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                  <label for="from_name">Name *</label>
+                  <input type="text" id="from_name" name="from_name" required />
+                  <span class="error-message" id="from_name-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="from_email">Email *</label>
+                  <input
+                    type="email"
+                    id="from_email"
+                    name="from_email"
+                    required
+                  />
+                  <span class="error-message" id="from_email-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone Number *</label>
+                  <input type="tel" id="phone" name="phone" required />
+                  <span class="error-message" id="phone-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="event_type">Type of Event *</label>
+                  <input
+                    type="text"
+                    id="event_type"
+                    name="event_type"
+                    placeholder="e.g., Wedding, Corporate Event, Concert"
+                    required
+                  />
+                  <span class="error-message" id="event_type-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Message *</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Tell us about your event requirements..."
+                    required
+                  ></textarea>
+                  <span class="error-message" id="message-error"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submit-btn">
+                  <span class="btn-text">Send Message</span>
+                  <span class="btn-loading" style="display: none">
+                    <span class="spinner"></span>
+                    Sending...
+                  </span>
+                </button>
+              </form>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="contact-info-container">
+              <h2 class="contact-info-title">Get in Touch</h2>
+              <div class="contact-info-content">
+                <div class="contact-info-item">
+                  <div class="contact-icon">📍</div>
+                  <div class="contact-details">
+                    <h3>Address</h3>
+                    <p>7445 Eton Ave<br />Canoga Park, 91303<br />California</p>
+                  </div>
+                </div>
+
+                <div class="contact-info-item">
+                  <div class="contact-icon">📞</div>
+                  <div class="contact-details">
+                    <h3>Phone</h3>
+                    <p><a href="tel:+18183704875">+1 (818) 370 4875</a></p>
+                  </div>
+                </div>
+
+                <div class="contact-info-item">
+                  <div class="contact-icon">✉️</div>
+                  <div class="contact-details">
+                    <h3>Email</h3>
+                    <p>
+                      <a href="mailto:thecaliforniasoundsolutions@gmail.com"
+                        >thecaliforniasoundsolutions@gmail.com</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- WhatsApp Button -->
+              <div class="whatsapp-section">
+                <h3>Quick Contact</h3>
+                <a
+                  href="https://wa.me/18183704875"
+                  target="_blank"
+                  class="whatsapp-btn"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="pictures/footer/footerwhatsappicon.png"
+                    class="whatsapp-icon"
+                    alt="WhatsApp Icon"
+                  />
+                  Chat with us on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="company-info">
+          <strong>The California Sound Solutions (Pvt) Ltd</strong><br />
+          7445 Eton Ave, Canoga Park, 91303, California<br />
+          Tel:
+          <a href="tel:+18183704875" class="link">+1 (818) 370 4875</a> |
+          <a href="tel:+18188357976" class="link">+1 (818) 835 7976</a>
+        </div>
+
+        <div class="nav-links">
+          <h4>QUICK LINKS :</h4>
+          <div><a href="index.html" class="link">HOME</a></div>
+          <div><a href="management.html" class="link">MANAGEMENT</a></div>
+          <div><a href="gallery.html" class="link">GALLERY</a></div>
+          <div><a href="services.html" class="link">OUR SERVICES</a></div>
+          <div><a href="contact.html" class="link">CONTACT US</a></div>
+        </div>
+
+        <p class="description">
+          Professional audio, video & lighting - effortless rentals.<br />
+          Transform your event with our premium AV systems.<br />
+          Immersive experiences, simplified.<br />
+          Rent top-tier gear, create unforgettable moments. <br />
+        </p>
+
+        <p class="credits">
+          <strong>Website by </strong>
+          <a
+            href="https://www.linkedin.com/in/ahnaf-fazlin-091a63302/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link"
+            >Ahnaf Fazlin</a
+          >,
+          <a
+            href="https://www.linkedin.com/in/nethaka-galagedera-42aa972aa"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link"
+            >Nethaka Galagedera</a
+          >, and
+          <a
+            href="https://www.linkedin.com/in/dinil-solanga-b821b22ba/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link"
+            >Dinil Solanga</a
+          >
+        </p>
+        <p class="copyright">
+          &copy; <span id="year"></span> The California Sound Solutions (Pvt)
+          Ltd. All rights reserved.
+        </p>
+      </div>
+
+      <div class="footer-visual">
+        <div class="logo-section">
+          <div class="logo"></div>
+        </div>
+        <div class="social-icons">
+          <a
+            href="https://www.facebook.com/share/12Kc7QBgTWZ/?mibextid=qi2Omg"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon social-icon--facebook"
+            aria-label="Facebook"
+          ></a>
+          <a
+            href="https://www.instagram.com/thecaliforniasoundss/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon social-icon--instagram"
+            aria-label="Instagram"
+          ></a>
+          <a
+            href="https://wa.me/18183704875"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon social-icon--whatsapp"
+            aria-label="WhatsApp"
+          ></a>
+          <a
+            href="https://www.linkedin.com/company/the-california-sound-solutions/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon social-icon--linkedin"
+            aria-label="LinkedIn"
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+
+    <style>
+      /* Contact page specific styles */
+      .contact-section {
+        padding: 4rem 0;
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .contact-form-title,
+      .contact-info-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-yellow);
+        margin-bottom: 2rem;
+      }
+
+      .contact-form {
+        background-color: var(--css-gray);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--primary-white);
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid var(--css-gray-light);
+        border-radius: var(--border-radius);
+        background-color: var(--css-gray-light);
+        color: var(--primary-white);
+        font-family: inherit;
+        transition: var(--transition);
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-yellow);
+      }
+
+      .error-message {
+        display: block;
+        color: #ff6b6b;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+      }
+
+      .contact-info-content {
+        background-color: var(--css-gray);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+      }
+
+      .contact-info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+      }
+
+      .contact-icon {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        margin-top: 0.25rem;
+      }
+
+      .contact-details h3 {
+        color: var(--primary-yellow);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-details p {
+        color: #cccccc;
+        margin: 0;
+      }
+
+      .contact-details a {
+        color: #cccccc;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .contact-details a:hover {
+        color: var(--primary-yellow);
+      }
+
+      .whatsapp-section {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--css-gray-light);
+      }
+
+      .whatsapp-section h3 {
+        color: var(--primary-yellow);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        background-color: #25d366;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition);
+      }
+
+      .whatsapp-btn:hover {
+        background-color: #128c7e;
+        transform: translateY(-2px);
+      }
+
+      .whatsapp-icon {
+        margin-right: 0.5rem;
+        font-size: 1.25rem;
+        width: 32px;
+        height: auto;
+        filter: hue-rotate(60deg) saturate(1.5) brightness(1.1);
+      }
+
+      /* Loading spinner styles */
+      .btn-loading {
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .spinner {
+        width: 16px;
+        height: 16px;
+        border: 2px solid transparent;
+        border-top: 2px solid currentColor;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      @media (max-width: 768px) {
+        .contact-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .contact-form-title,
+        .contact-info-title {
+          font-size: 1.75rem;
+        }
+
+        .contact-form,
+        .contact-info-content {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </body>
+</html>
