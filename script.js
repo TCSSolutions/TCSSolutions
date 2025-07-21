@@ -4,7 +4,19 @@ document.addEventListener("DOMContentLoaded", function () {
   initHeroSlideshow();
   initCurrentYear();
   initActiveNavigation();
+  initIOSDetection();
 });
+
+// Detect iOS devices and add class
+function initIOSDetection() {
+  function detectIOS() {
+    return /iPad|iPhone|iPod/.test(navigator.userAgent);
+  }
+
+  if (detectIOS()) {
+    document.body.classList.add("ios-device");
+  }
+}
 
 // Hero background slideshow functionality
 function initHeroSlideshow() {
