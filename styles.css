@@ -341,13 +341,7 @@ body {
 .feature-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
-  filter: grayscale(100%) sepia(100%) hue-rotate(200deg) saturate(4)
-    brightness(0.8);
-}
-
-.feature-handshake {
-  filter: grayscale(100%) sepia(100%) hue-rotate(200deg) saturate(4)
-    brightness(0.7);
+  color: #1a79c1;
 }
 
 .feature-title {
