@@ -11,7 +11,7 @@ function initGallery() {
   const galleryItems = [];
 
   // Generate 16 gallery items with your image paths
-  for (let i = 1; i <= 32; i++) {
+  for (let i = 1; i <= 29; i++) {
     galleryItems.push({
       id: i,
       imagePath: `pictures/gallery_page/gallery-image-${i}.webp`,
@@ -46,7 +46,7 @@ function initLightbox() {
   const lightboxClose = document.getElementById("lightbox-close");
 
   let currentImageIndex = 0;
-  let totalImages = 32;
+  let totalImages = 29;
 
   // Create navigation arrows
   const prevArrow = document.createElement("button");
