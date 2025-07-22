@@ -11,17 +11,20 @@
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 2px;
+  -webkit-appearance: none; /* Important for macOS */
 }
 
 ::-webkit-scrollbar-track {
   background: #1a1a1a;
+  -webkit-appearance: none;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--primary-yellow);
-  border-radius: 6px;
+  border-radius: 12px;
   width: 2px;
+  -webkit-appearance: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
