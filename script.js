@@ -1,3 +1,18 @@
+// Partnership data - Add your partners here
+const partnerships = [
+  {
+    name: "The Montalbán Theatre - Hollywood",
+    logo: "pictures/home_page/partnership-logos/themontalban.webp",
+    website: "https://www.themontalban.com",
+  },
+  // Add more partnerships as needed:
+  // {
+  //   name: "Partner Company 2",
+  //   logo: "pictures/home_page/partnership-logos/partner2.webp",
+  //   website: "link"
+  // }
+];
+
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize all functionality
   initNavigation();
@@ -5,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initCurrentYear();
   initActiveNavigation();
   initIOSDetection();
+  initPartnerships();
 });
 
 // Detect iOS devices and add class
@@ -128,6 +144,48 @@ function initNavigation() {
       });
     });
   }
+}
+
+// Initialize partnerships section
+function initPartnerships() {
+  const partnershipsGrid = document.getElementById("partnerships-grid");
+
+  if (!partnershipsGrid || partnerships.length === 0) {
+    // Hide the entire partnerships section if no partners
+    const partnershipsSection = document.querySelector(".partnerships");
+    if (partnershipsSection) {
+      partnershipsSection.style.display = "none";
+    }
+    return;
+  }
+
+  // Clear existing content
+  partnershipsGrid.innerHTML = "";
+
+  // Generate partnership items
+  partnerships.forEach((partner) => {
+    const partnershipItem = document.createElement("a");
+    partnershipItem.href = partner.website;
+    partnershipItem.target = "_blank";
+    partnershipItem.rel = "noopener noreferrer";
+    partnershipItem.className = "partnership-item";
+    partnershipItem.setAttribute("aria-label", `Visit ${partner.name} website`);
+
+    const img = document.createElement("img");
+    img.src = partner.logo;
+    img.alt = partner.name;
+    img.loading = "lazy";
+
+    // Handle image loading errors
+    img.onerror = function () {
+      console.warn(`Failed to load partnership logo: ${partner.logo}`);
+      this.style.display = "none";
+      partnershipItem.style.display = "none";
+    };
+
+    partnershipItem.appendChild(img);
+    partnershipsGrid.appendChild(partnershipItem);
+  });
 }
 
 // Animation on scroll (commented out from original)
