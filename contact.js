@@ -42,7 +42,7 @@ function initContactForm() {
             formatted = `+1 (${cleaned.slice(1, 4)}) ${cleaned.slice(
               4,
               7
-            )}-${cleaned.slice(7, 10)}`;
+            )}-${cleaned.slice(7, 11)}`;
           } else {
             // Limit to 10 digits if no country code
             const limited = cleaned.slice(0, 10);

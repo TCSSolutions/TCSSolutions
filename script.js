@@ -112,36 +112,35 @@ function initNavigation() {
   const navMenu = document.getElementById("nav-menu");
 
   if (navToggle && navMenu) {
-    navToggle.addEventListener("click", function () {
-      navMenu.classList.toggle("active");
-
-      // Animate hamburger
+    function setMenuOpen(open) {
+      navMenu.classList.toggle("active", open);
+      navToggle.setAttribute("aria-expanded", String(open));
+      navToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
       const bars = navToggle.querySelectorAll(".bar");
       bars.forEach((bar, index) => {
-        if (navMenu.classList.contains("active")) {
-          if (index === 0)
-            bar.style.transform = "rotate(45deg) translate(6.5px, 6.5px)";
-          if (index === 1) bar.style.opacity = "0";
-          if (index === 2)
-            bar.style.transform = "rotate(-45deg) translate(7px, -6px)";
-        } else {
-          bar.style.transform = "none";
-          bar.style.opacity = "1";
-        }
+        bar.style.opacity = open && index === 1 ? "0" : "1";
+        bar.style.transform = open && index === 0
+          ? "rotate(45deg) translate(6.5px, 6.5px)"
+          : open && index === 2
+            ? "rotate(-45deg) translate(7px, -6px)"
+            : "none";
       });
-    });
+    }
 
-    // Close menu when clicking on links
-    const navLinks = navMenu.querySelectorAll(".nav-link");
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-        const bars = navToggle.querySelectorAll(".bar");
-        bars.forEach((bar) => {
-          bar.style.transform = "none";
-          bar.style.opacity = "1";
-        });
-      });
+    navToggle.addEventListener("click", () => {
+      setMenuOpen(!navMenu.classList.contains("active"));
+      if (navMenu.classList.contains("active")) {
+        navMenu.querySelector(".nav-link").focus();
+      }
+    });
+    navMenu.querySelectorAll(".nav-link").forEach((link) => {
+      link.addEventListener("click", () => setMenuOpen(false));
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navMenu.classList.contains("active")) {
+        setMenuOpen(false);
+        navToggle.focus();
+      }
     });
   }
 }

@@ -10,7 +10,7 @@ function initGallery() {
   // Gallery items data with actual image paths
   const galleryItems = [];
 
-  // Generate 16 gallery items with your image paths
+  // Generate 29 gallery items with your image paths
   for (let i = 1; i <= 29; i++) {
     galleryItems.push({
       id: i,
@@ -27,7 +27,9 @@ function initGallery() {
 }
 
 function createGalleryItem(item) {
-  const div = document.createElement("div");
+  const div = document.createElement("button");
+  div.type = "button";
+  div.setAttribute("aria-label", `Open gallery image ${item.id}`);
   div.className = "gallery-item fade-in";
   div.dataset.imagePath = item.imagePath;
   div.dataset.imageIndex = item.id - 1; // 0-based index for navigation
@@ -45,6 +47,8 @@ function initLightbox() {
   const lightboxCaption = document.getElementById("lightbox-caption");
   const lightboxClose = document.getElementById("lightbox-close");
 
+  let opener;
+  let previousOverflow;
   let currentImageIndex = 0;
   let totalImages = 29;
 
@@ -76,7 +80,9 @@ function initLightbox() {
 
     // Update navigation button states
     prevArrow.style.opacity = index === 0 ? "0.5" : "1";
+    prevArrow.setAttribute("aria-disabled", String(index === 0));
     nextArrow.style.opacity = index === totalImages - 1 ? "0.5" : "1";
+    nextArrow.setAttribute("aria-disabled", String(index === totalImages - 1));
   }
 
   // Add click event to gallery items
@@ -84,7 +90,11 @@ function initLightbox() {
   galleryItems.forEach((item, index) => {
     item.addEventListener("click", function () {
       showImage(index);
-      lightbox.style.display = "block";
+      opener = item;
+      previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      lightbox.showModal();
+      lightboxClose.focus();
     });
   });
 
@@ -105,22 +115,28 @@ function initLightbox() {
 
   // Close lightbox
   lightboxClose.addEventListener("click", function () {
-    lightbox.style.display = "none";
+    lightbox.close();
   });
 
   // Close lightbox when clicking outside image
   lightbox.addEventListener("click", function (e) {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
+    if (e.target === lightbox || e.target === lightboxContent) {
+      lightbox.close();
     }
+  });
+
+  lightbox.addEventListener("close", () => {
+    document.body.style.overflow = previousOverflow;
+    if (opener) opener.focus();
   });
 
   // Keyboard navigation
   document.addEventListener("keydown", function (e) {
-    if (lightbox.style.display === "block") {
+    if (lightbox.open) {
       switch (e.key) {
         case "Escape":
-          lightbox.style.display = "none";
+          e.preventDefault();
+          lightbox.close();
           break;
         case "ArrowLeft":
           e.preventDefault();

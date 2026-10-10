@@ -44,11 +44,11 @@
           <a href="contact.html" class="nav-link">Contact Us</a>
         </div>
 
-        <div class="nav-toggle" id="nav-toggle">
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="nav-menu" aria-expanded="false">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
-        </div>
+        </button>
       </div>
     </nav>
 
@@ -76,13 +76,13 @@
     </main>
 
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
+    <dialog class="lightbox" id="lightbox" aria-label="Gallery image viewer">
       <div class="lightbox-content">
-        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close image viewer" autofocus>&times;</button>
         <img class="lightbox-image" id="lightbox-image" src="" alt="" />
         <div class="lightbox-caption" id="lightbox-caption"></div>
       </div>
-    </div>
+    </dialog>
 
     <!-- Footer -->
     <footer class="footer">
@@ -173,6 +173,13 @@
             class="social-icon social-icon--linkedin"
             aria-label="LinkedIn"
           ></a>
+          <a
+            href="https://www.youtube.com/@TheCaliforniaSoundSolutions"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-icon social-icon--youtube"
+            aria-label="YouTube"
+          ></a>
         </div>
       </div>
     </footer>
@@ -192,6 +199,10 @@
       }
 
       .gallery-item {
+        border: 0;
+        padding: 0;
+        display: block;
+        width: 100%;
         position: relative;
         overflow: hidden;
         border-radius: var(--border-radius);
@@ -220,6 +231,12 @@
 
       /* Lightbox styles */
       .lightbox {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        max-width: none;
+        max-height: none;
+        color: var(--primary-white);
         display: none;
         position: fixed;
         z-index: 2000;
@@ -230,6 +247,10 @@
         background-color: rgba(0, 0, 0, 0.95);
         -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
+      }
+
+      .lightbox[open] {
+        display: block;
       }
 
       .lightbox-content {
@@ -258,6 +279,9 @@
       }
 
       .lightbox-close {
+        background: transparent;
+        border: 0;
+        padding: 0;
         position: absolute;
         top: 20px;
         right: 35px;
